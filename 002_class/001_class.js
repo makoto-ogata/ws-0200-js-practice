@@ -20,15 +20,7 @@
  */
 
 class Person {
-  sayHi(){
-    console.log('Hi!!');
-  }
-
-  describe(){
-    console.log('This is a Person class');
-  }
-
-  name = '';
+  name = ''; 
   age = 0;
   bio = '';
 
@@ -37,9 +29,17 @@ class Person {
     this.age = age;
     this.bio = bio;
   }
+  
+  sayHi(){
+    console.log('Hi!!');
+  }
+
+  static describe(){
+    console.log('This is a Person class');
+  }
 
   get isUnderage(){
-    if(this.age <= 20){
+    if(this.age < 20){
       return true;
     }
     return false;
