@@ -20,11 +20,8 @@
  */
 
 class Person {
-  name = ''; 
-  age = 0;
-  bio = '';
 
-  constructor(name, age, bio){
+  constructor(name = '', age = 0, bio = ''){
     this.name = name;
     this.age = age;
     this.bio = bio;
@@ -46,6 +43,7 @@ class Person {
   }
 
   toString(){
+    return `name: ${this.name}, age: ${this.age}, bio: ${this.bio}`;
   }
 }
 
