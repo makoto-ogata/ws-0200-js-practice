@@ -107,11 +107,10 @@ class List {
     // TODO:
     for(let i = 0; i < this.data.length; i++){
       if(this.data[i] === target){
-        return this.data.indexOf(target);
-      } else {
-        return -1;
+        return i;
       }
     }
+    return -1;
   }
 
   /** リストの の中から要素に合致する数を取り除く
