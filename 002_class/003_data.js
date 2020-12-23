@@ -124,6 +124,12 @@ class List {
    */
   filter(target) {
     // TODO:
+    for(let i = 0; i < this.data.length; i++){
+      if(this.data[i] === target){
+        this.data.splice(i, 1);
+      }
+    }
+    return this.data;
   }
 }
 
@@ -154,6 +160,7 @@ class Stack {
    */
   push(item) {
     // TODO:
+    this.data.push(item);
   }
 
   /** スタックから要素を取得する
@@ -163,6 +170,8 @@ class Stack {
    */
   pop() {
     // TODO:
+    const item = this.data.pop();
+    return item;
   }
 
   /** スタックの末尾の要素を参照する
@@ -172,6 +181,8 @@ class Stack {
    */
   peek() {
     // TODO:
+    const item = this.data.slice(-1)[0];
+    return item;
   }
 }
 
