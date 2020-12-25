@@ -129,7 +129,7 @@ class List {
         this.data.splice(i, 1);
       }
     }
-    return this.data;
+    return this;
   }
 }
 
