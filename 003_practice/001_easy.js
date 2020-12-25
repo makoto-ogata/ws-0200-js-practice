@@ -12,6 +12,15 @@
  */
 
 function length(str) {
+  const strArray = str.split('');
+  let number = 0;
+  strArray.forEach((value, index) => {
+    number = index;
+  });
+  if(number === 0){
+    return 0;
+  }
+  return number + 1;
 }
 
 /**
