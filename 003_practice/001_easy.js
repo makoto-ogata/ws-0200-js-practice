@@ -35,7 +35,15 @@ function length(str) {
  *
  */
 function reverse(str) {
+  const strArray = str.split('');
+  const reverseArray = [];
+  strArray.forEach((value) => {
+    reverseArray.unshift(value);
+  });
+  const result = reverseArray.join('');
+  return result;
 }
+
 
 /**
  *  指定された文字列の位置を返却
