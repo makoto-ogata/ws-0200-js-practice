@@ -58,6 +58,13 @@ function reverse(str) {
  */
 
 function findIndex(str, char) {
+  const strArray = str.split('');
+  for(let i = 0; i < strArray.length; i++){
+    if(strArray[i] === char){
+      return i;
+    }
+  }
+  return -1;
 }
 
 /**
@@ -73,6 +80,9 @@ function findIndex(str, char) {
  */
 
 function split(a, b) {
+  const replace = a.replace(b, ',');
+  const result = replace.split(',');
+  return result;
 }
 
 /**
@@ -88,6 +98,11 @@ function split(a, b) {
  */
 
 function sum(array) {
+  let result = 0;
+  for(let i = 0; i < array.length; i++){
+    result += array[i];
+  }
+  return result;
 }
 
 /**
@@ -105,6 +120,16 @@ function sum(array) {
  */
 
 function average(array) {
+  let sum = 0;
+  if(array.length === 0){
+    return 0;
+  }
+  for(let i = 0; i < array.length; i++){
+    sum += array[i];
+  }
+  let average = sum / array.length;
+  let result = Math.floor(average);
+  return result;
 }
 
 /**
