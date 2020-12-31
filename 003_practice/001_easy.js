@@ -145,6 +145,8 @@ function average(array) {
  */
 
 function concat(a, b) {
+  const result = a.concat(b);
+  return result;
 }
 
 /**
