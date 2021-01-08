@@ -162,6 +162,8 @@ function concat(a, b) {
  */
 
 function size(array) {
+  const result = array.length;
+  return result;
 }
 
 /**
@@ -178,6 +180,17 @@ function size(array) {
  */
 
 function minMax(array) {
+  if(array.length === 0){
+    return;
+  }
+  let max = array.reduce((acc, cur) => {
+    return Math.max(acc, cur);
+  });
+  let min = array.reduce((acc, cur) => {
+    return Math.min(acc, cur);
+  });
+
+  console.log(`max: ${max}, min: ${min}`);
 }
 
 /**
@@ -192,6 +205,13 @@ function minMax(array) {
  */
 
 function seq(num) {
+  let array = [];
+  if(num > array.length){
+    for(let i = 0; i < num; i++){
+      array.push(i);
+    }
+  }
+  return array;
 }
 
 /**
@@ -207,6 +227,15 @@ function seq(num) {
  */
 
 function omitSeq(num) {
+  let array =[];
+  for(let i = 1; i <= num; i++){
+    array.push(i);
+  }
+  const newArray = array.filter((cur) => {
+    return cur % 2 === 1;
+  });
+
+  return newArray;
 }
 
 /**
@@ -222,6 +251,11 @@ function omitSeq(num) {
  */
 
 function filter(array, num) {
+  const result = array.filter((cur) => {
+    return cur <= num;
+  });
+
+  return result;
 }
 
 
@@ -250,6 +284,17 @@ function filter(array, num) {
  */
 
 function fizzBuzz () {
+  for(let i = 1; i <= 100; i++){
+    if(i % 3 === 0 && i % 5 === 0){
+      console.log(`${i} FizzBuzz`);
+    } else if(i % 3 === 0){
+      console.log(`${i} Fizz`);
+    } else if( i % 5 === 0 ){
+      console.log(`${i} Buzz`);
+    } else {
+      console.log(i);
+    }
+  }
 }
 
 module.exports = {
