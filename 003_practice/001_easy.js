@@ -12,15 +12,11 @@
  */
 
 function length(str) {
-  const strArray = str.split('');
-  let number = 0;
-  strArray.forEach((value, index) => {
-    number = index;
-  });
-  if(number === 0){
-    return 0;
+  let i = 0;
+  while(str[i]) {
+    i++;
   }
-  return number + 1;
+  return i; 
 }
 
 /**
@@ -35,13 +31,11 @@ function length(str) {
  *
  */
 function reverse(str) {
-  const strArray = str.split('');
-  const reverseArray = [];
-  strArray.forEach((value) => {
-    reverseArray.unshift(value);
-  });
-  const result = reverseArray.join('');
-  return result;
+  let tmp = ''
+  for (let i = str.length - 1; i >= 0; i--) {
+    tmp += str[i]
+  }
+  return tmp 
 }
 
 
@@ -80,9 +74,18 @@ function findIndex(str, char) {
  */
 
 function split(a, b) {
-  const replace = a.replace(b, ',');
-  const result = replace.split(',');
-  return result;
+  let tmp = []
+  let str = ''
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] === b) {
+      tmp.push(str)
+      str = ''
+    } else {
+      str += a[i]
+    }
+  }
+  tmp.push(str)
+  return tmp;
 }
 
 /**
@@ -183,13 +186,16 @@ function minMax(array) {
   if(array.length === 0){
     return;
   }
-  let max = array.reduce((acc, cur) => {
-    return Math.max(acc, cur);
-  });
-  let min = array.reduce((acc, cur) => {
-    return Math.min(acc, cur);
-  });
-
+  let max = array[0]
+  let min = array[0]
+  for(let i = 0; i < array.length; i++) {
+    if (max < array[i]) {
+      max = array[i]
+    }
+    if (min > array[i]) {
+      min = array[i]
+    }
+  }
   console.log(`max: ${max}, min: ${min}`);
 }
 
@@ -228,14 +234,10 @@ function seq(num) {
 
 function omitSeq(num) {
   let array =[];
-  for(let i = 1; i <= num; i++){
+  for(let i = 1; i <= num; i = i + 2){
     array.push(i);
   }
-  const newArray = array.filter((cur) => {
-    return cur % 2 === 1;
-  });
-
-  return newArray;
+  return array;
 }
 
 /**
