@@ -10,6 +10,22 @@
  *
  */
 function rotate(str, num) {
+  let tmp = '';
+  if(num > 0){
+    for(let i = 0; i < str.length - num; i++){
+      tmp += str[i];
+    }
+  } else if(num < 0){
+    for(let i = 0; i < -num; i++){
+      tmp += str[i];
+    }
+  }
+  
+
+  let slice = str.slice(-num);
+  const result = slice + tmp;
+
+  return result;
 }
 
 /**
