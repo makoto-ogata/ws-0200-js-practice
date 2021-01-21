@@ -40,6 +40,12 @@ function rotate(str, num) {
  *
  */
 function removeVowels(str) {
+  const vowels = 'aiueo';
+  for(let i = 0; i < vowels.length; i++){
+    str = str.replace(new RegExp(vowels[i], 'g'), '');
+  }
+
+  return str;
 }
 
 /**
