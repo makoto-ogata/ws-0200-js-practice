@@ -60,6 +60,8 @@ function removeVowels(str) {
  *
  */
 function countStr(s1, s2) {
+  const result = s1.match(new RegExp(s2, 'g')).length;
+  return result;
 }
 
 /**
@@ -75,6 +77,7 @@ function countStr(s1, s2) {
  */
 
 function isPalindrome(str) {
+
 }
 
 /**
