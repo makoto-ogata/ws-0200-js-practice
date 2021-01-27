@@ -102,13 +102,11 @@ function isPalindrome(str) {
  *
  */
 function isPrime(num) {
-  if(num === 2){
+  if(num === 2 || num === 3){
     return true;
   } else if(num === 1){
     return false;
-  }
-
-  if(num % 2 === 0 || num % 3 === 0){
+  } else if(num % 2 === 0 || num % 3 === 0) {
     return false;
   } else {
     return true;
