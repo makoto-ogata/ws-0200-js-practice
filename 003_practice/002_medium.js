@@ -77,14 +77,7 @@ function countStr(s1, s2) {
  */
 
 function isPalindrome(str) {
-  let word = str.split('').reverse().join('');
-
-  if(str === word){
-    return true;
-  } else {
-    return false;
-  }
-
+  return str === str.split('').reverse().join('');
 }
 
 /**
@@ -106,7 +99,7 @@ function isPrime(num) {
     return true;
   } else if(num === 1){
     return false;
-  } else if(num % 2 === 0 || num % 3 === 0) {
+  } else if(num % 2 === 0 || num % 3 === 0 || num % 7 === 0) {
     return false;
   } else {
     return true;
