@@ -95,15 +95,17 @@ function isPalindrome(str) {
  *
  */
 function isPrime(num) {
-  if(num === 2 || num === 3){
-    return true;
-  } else if(num === 1){
+  if(num === 1){
     return false;
-  } else if(num % 2 === 0 || num % 3 === 0 || num % 7 === 0) {
-    return false;
-  } else {
+  } else if (num === 2){
     return true;
   }
+  for(let i = 3; i < 11; i++){
+    if(num % i === 0){
+      return false;
+    } 
+  }
+  return true;
 }
 
 /**
