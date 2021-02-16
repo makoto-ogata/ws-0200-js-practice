@@ -10,6 +10,22 @@
  *
  */
 function rotate(str, num) {
+  let tmp = '';
+  if(num > 0){
+    for(let i = 0; i < str.length - num; i++){
+      tmp += str[i];
+    }
+  } else if(num < 0){
+    for(let i = 0; i < -num; i++){
+      tmp += str[i];
+    }
+  }
+  
+
+  let slice = str.slice(-num);
+  const result = slice + tmp;
+
+  return result;
 }
 
 /**
@@ -24,6 +40,12 @@ function rotate(str, num) {
  *
  */
 function removeVowels(str) {
+  const vowels = 'aiueo';
+  for(let i = 0; i < vowels.length; i++){
+    str = str.replace(new RegExp(vowels[i], 'g'), '');
+  }
+
+  return str;
 }
 
 /**
@@ -38,6 +60,8 @@ function removeVowels(str) {
  *
  */
 function countStr(s1, s2) {
+  const result = s1.match(new RegExp(s2, 'g')).length;
+  return result;
 }
 
 /**
@@ -53,6 +77,7 @@ function countStr(s1, s2) {
  */
 
 function isPalindrome(str) {
+  return str === str.split('').reverse().join('');
 }
 
 /**
@@ -70,6 +95,17 @@ function isPalindrome(str) {
  *
  */
 function isPrime(num) {
+  if(num === 1 || num === 4){
+    return false;
+  } else if (num === 2){
+    return true;
+  }
+  for(let i = 3; i < num; i++){
+    if(num % i === 0){
+      return false;
+    }
+  }
+  return true;
 }
 
 /**
@@ -88,6 +124,19 @@ function isPrime(num) {
  *
  */
 function sumWithout4andNext(array) {
+  let result = 0;
+  let num;
+  for(let i = 0; i < array.length; i++){
+    if(array[i] === 4){
+      array[i] = 0;
+      num = i + 1;
+      array[num] = 0;
+    }
+
+    result += array[i];
+  }
+
+  return result;
 }
 
 module.exports = {
