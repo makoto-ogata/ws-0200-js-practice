@@ -11,8 +11,13 @@
  */
 
 function sumSequence (n, sum = 0) {
-}
+  if(n === 0){
+    return sum;
+  }
 
+  return sumSequence(n - 1, sum + n);
+}
+  
 /**
  *  フィボナッチ数
  *
@@ -24,6 +29,15 @@ function sumSequence (n, sum = 0) {
  */
 
 function fibonacci (num, index = 0, array = []) {
+  if (num < index) {
+    return array;
+  }
+  if (index === 0 || index === 1) {
+    array.push(1)
+    return fibonacci(num, index + 1, array);
+  }
+  array.push(array[index - 1] + array[index - 2])
+  return fibonacci(num, index + 1, array);
 }
 
 
@@ -80,6 +94,16 @@ function fibonacci (num, index = 0, array = []) {
  */
 
 function fileSize (node, sum = 0) {
+  if (!node.children) {
+    return node.size + sum
+  }
+  const res = node.children.reduce((acc, child) => {
+    if (child.children) {
+      return acc + fileSize(child)
+    }
+    return acc + child.size
+  }, sum)
+  return res
 }
 
 
