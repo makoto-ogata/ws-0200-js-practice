@@ -93,7 +93,43 @@ function merge(left, right) {
  */
 
 function quickSort (a, start = 0, end = (a.length -1)) {
-  return a
+  function swap(arr, left, right) {
+    let temp = arr[left];
+    arr[left] = arr[right];
+    arr[right] = temp;
+  }
+  function partition(arr, left, right) {
+    let middle = arr[Math.floor((right + left) / 2)];
+    let i = left;
+    let j = right;
+    while (i <= j) {
+      while (arr[i] < middle) {
+        i++;
+      }
+      while (arr[j] > middle) {
+        j--;
+      }
+      if (i <= j) {
+        swap(arr, i, j);
+        i++;
+        j--;
+      }
+    }
+    return i;
+  }
+
+  let index;
+  if (a.length > 1) {
+    index = partition(a, start, end);
+    if (start < index - 1) {
+      quickSort(a, start, index - 1);
+    }
+    if (index < end) {
+      quickSort(a, index, end);
+    }
+  }
+
+  return a;
 };
 
 module.exports = {
