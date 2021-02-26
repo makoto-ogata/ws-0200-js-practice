@@ -35,7 +35,7 @@ function binarySearch (array, target) {
   let high = array.length - 1;
   let mid;
   while(low <= high) {
-    mid = (low + high);
+    mid = Math.floor((low + high) / 2);
     if(array[mid] === target){
       return mid;
     } else if(array[mid] < target) {
