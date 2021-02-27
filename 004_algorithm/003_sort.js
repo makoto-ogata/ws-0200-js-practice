@@ -9,7 +9,16 @@
  */
 
 function bubbleSort (array) {
-  return array
+  for(let i = 0; i < array.length; i++){
+    for(let j = array.length - 1; i < j ; j--){
+      if(array[j] < array[j - 1]){
+        let tmp = array[j];
+        array[j] = array[j - 1];
+        array[j - 1] = tmp;
+      }
+    }
+  }
+  return array;
 }
 
 /**
@@ -23,7 +32,17 @@ function bubbleSort (array) {
  */
 
 function insertSort (array) {
-  return array
+  for(let i = 1; i < array.length; i++){
+    let tmp = array[i];
+    let j = i - 1;
+    while(j >= 0 && array[j] > tmp){
+      array[j + 1] = array[j];
+      j--;
+    }
+    array[j + 1] = tmp;
+  }
+
+  return array;
 }
 
 /**
@@ -37,10 +56,30 @@ function insertSort (array) {
  */
 
 function mergeSort (arr) {
-  return arr
+  if(arr.length <= 1){
+    return arr;
+  }
+
+  const middle = Math.floor(arr.length / 2);
+  const left = arr.slice(0, middle);
+  const right = arr.slice(middle);
+  return merge(mergeSort(left), mergeSort(right));
 }
 
 function merge(left, right) {
+  let array = [];
+  let leftIndex = 0;
+  let rightIndex = 0;
+  while(leftIndex < left.length && rightIndex < right.length) {
+    if(left[leftIndex] < right[rightIndex]){
+      array.push(left[leftIndex]);
+      leftIndex++;
+    } else {
+      array.push(right[rightIndex]);
+      rightIndex++;
+    }
+  }
+  return array.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
 }
 
 /**
@@ -54,7 +93,43 @@ function merge(left, right) {
  */
 
 function quickSort (a, start = 0, end = (a.length -1)) {
-  return a
+  function swap(arr, left, right) {
+    let temp = arr[left];
+    arr[left] = arr[right];
+    arr[right] = temp;
+  }
+  function partition(arr, left, right) {
+    let middle = arr[Math.floor((right + left) / 2)];
+    let i = left;
+    let j = right;
+    while (i <= j) {
+      while (arr[i] < middle) {
+        i++;
+      }
+      while (arr[j] > middle) {
+        j--;
+      }
+      if (i <= j) {
+        swap(arr, i, j);
+        i++;
+        j--;
+      }
+    }
+    return i;
+  }
+
+  let index;
+  if (a.length > 1) {
+    index = partition(a, start, end);
+    if (start < index - 1) {
+      quickSort(a, start, index - 1);
+    }
+    if (index < end) {
+      quickSort(a, index, end);
+    }
+  }
+
+  return a;
 };
 
 module.exports = {
